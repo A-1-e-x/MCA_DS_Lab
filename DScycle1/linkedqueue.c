@@ -10,7 +10,7 @@ struct node *head=NULL;
 
 void enqueue()
 {
-	struct node *newnode;
+	struct node *newnode,*temp= head;
 	newnode=(struct node *)malloc(sizeof(struct node));
 	if(newnode==NULL)
 	{
@@ -26,7 +26,7 @@ void enqueue()
 	}
 	else
 	{
-		while(temp->link=NULL)
+		while(temp->link != NULL)
 		{
 			temp=temp->link;
 		}
@@ -59,7 +59,7 @@ void display()
 	printf("\n Elements in queue are:\n");
 	while(temp!=NULL)
 	{
-		printf("%d",temp->data);
+		printf("%d\t",temp->data);
 		temp=temp->link;
 	}
 }
@@ -67,8 +67,8 @@ void display()
 void search()
 {
 	struct node *temp=head;
-	int key,found=0,pos=0;
-	if(top==NULL)
+	int key,found=0,pos=1;
+	if(head==NULL)
 	{
 		printf("\n Queue is empty\n");
 		return;
@@ -79,11 +79,11 @@ void search()
 	{
 		if(temp->data==key)
 		{
-			printf("\n %d Elements founded\n",temp->data,pos);
+			printf("\n %d Elements founded at %d\n",temp->data,pos);
 			found=1;
 		}
 		temp=temp->link;
-		pos++
+		pos++;
 	}
 	if(!found)
 	{
@@ -116,4 +116,3 @@ void main()
 		}
 	}while(choice!=5);
 }
-	
